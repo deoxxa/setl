@@ -30,6 +30,7 @@
     "mux-demux": "~3.7.8",
     "ndarray-continuous": "~0.4.1",
     "zeros": "0.0.0",
-    "moore": "0.0.2"
+    "moore": "0.0.2",
+    "cave-automata-2d": "~0.3.1"
   }
 }
