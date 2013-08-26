@@ -4,8 +4,8 @@
   "description": "A game to play in your terminal",
   "main": "index.js",
   "scripts": {
-    "status": "ssh deploy@192.168.0.13 status",
-    "deploy": "git push deploy@192.168.0.13:setl master:master"
+    "status": "ssh $(npm get deploy-user)@$(npm get deploy-host) status",
+    "deploy": "git push $(npm get deploy-user)@$(npm get deploy-host):$(npm get deploy-name) master:master"
   },
   "repository": {
     "type": "git",
