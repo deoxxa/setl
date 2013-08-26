@@ -15,6 +15,5 @@ var server = net.createServer(function(client) {
   client.pipe(mdmBus).pipe(client)
 })
 
-
 server.listen(9090)
 console.log('server listening on 9090')
