@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "status": "ssh $(npm get deploy-user)@$(npm get deploy-host) status",
-    "deploy": "git push $(npm get deploy-user)@$(npm get deploy-host):$(npm get deploy-name) master:master"
+    "deploy": "git push $(npm get deploy-user)@$(npm get deploy-host):$(npm get deploy-name) master:master",
+    "deploy-init": "npm set deploy-user deploy; npm set deploy-host 192.168.0.13; npm set deploy-name setl;"
   },
   "repository": {
     "type": "git",
