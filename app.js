@@ -18,6 +18,7 @@ screen.on("scroll", screen.render.bind(screen));
 
 process.stdin.on("keypress", function(char, key) {
   if (key && key.ctrl && key.name === "c") {
+    screen.reset();
     return process.stdin.pause();
   }
 
