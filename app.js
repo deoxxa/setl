@@ -20,11 +20,19 @@ process.stdin.on("keypress", function(char, key) {
     return process.stdin.pause();
   }
 
+  var x = 0, y = 0;
+
   switch (key.name) {
-    case "left":  screen.cursorBy(-1, 0); break;
-    case "right": screen.cursorBy(+1, 0); break;
-    case "down":  screen.cursorBy(0, -1); break;
-    case "up":    screen.cursorBy(0, +1); break;
+    case "left":  x = -1; break;
+    case "right": x =  1; break;
+    case "down":  y = -1; break;
+    case "up":    y =  1; break;
+  }
+
+  if (key.shift) {
+    screen.scrollBy(x, y);
+  } else {
+    screen.cursorBy(x, y);
   }
 });
 
