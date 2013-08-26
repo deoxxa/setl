@@ -8,9 +8,10 @@ var Screen = require("./lib/screen"),
 keypress(process.stdin);
 
 var screen = new Screen({
-  in: process.stdin,
-  out: process.stdout,
+  world: World(),
 });
+
+screen.pipe(process.stdout);
 
 screen.on("cursor", screen.render.bind(screen));
 screen.on("scroll", screen.render.bind(screen));
