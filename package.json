@@ -1,0 +1,22 @@
+{
+  "name": "setl",
+  "version": "0.0.0",
+  "description": "A game to play in your terminal",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/deoxxa/setl.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/deoxxa/setl/issues"
+  },
+  "dependencies": {
+    "jetty": "~0.2.1",
+    "keypress": "~0.2.1"
+  }
+}
