@@ -3,11 +3,11 @@
 var Screen = require("./lib/screen"),
     World = require("./lib/world");
 
-var worldLayer = World();
+var world = World();
 
 var screen = new Screen({
   layers: [
-    worldLayer,
+    world.landscape,
   ],
 });
 
