@@ -6,6 +6,7 @@
   "scripts": {
     "status": "ssh $(npm get deploy-user)@$(npm get deploy-host) status",
     "deploy": "git push $(npm get deploy-user)@$(npm get deploy-host):$(npm get deploy-name) master:master",
+    "logs": "ssh $(npm get deploy-user)@$(npm get deploy-host) logs $(npm get deploy-name)",
     "deploy-init": "npm set deploy-user deploy; npm set deploy-host 192.168.0.13; npm set deploy-name setl;"
   },
   "repository": {
