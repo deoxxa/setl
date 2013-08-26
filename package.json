@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "description": "A game to play in your terminal",
   "main": "index.js",
+  "scripts": {
+    "status": "ssh deploy@192.168.0.13 status",
+    "deploy": "git push deploy@192.168.0.13:setl master:master"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/deoxxa/setl.git"
