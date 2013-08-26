@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git://github.com/deoxxa/setl.git"
   },
+  "engines": {
+    "node": "~0.10.0"
+  },
   "keywords": [
     "game"
   ],
