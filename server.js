@@ -1,18 +1,49 @@
 "use strict"
 
-var net = require('net')
+var net = require("net"),
+    keypress = require("keypress");
 
-var mdmBus = require('mux-demux')()
-var players = {}
+var World = require("./lib/world"),
+    Screen = require("./lib/screen");
 
-mdmBus.on('connection', function(stream) {
-  var name = stream.meta
-  players[name] = stream
-  console.log('%s connected.', name)
-})
+var players = {};
 
-var server = net.createServer(function(client) {
-  client.pipe(mdmBus).pipe(client)
+var world = new World();
+
+var server = net.createServer(function(socket) {
+  var screen = new Screen({
+    layers: [
+      world.landscape,
+    ],
+  })
+
+  screen.pipe(socket)
+
+  var x = 0, y = 0;
+
+  setInterval(function() {
+    screen.render(x, y);
+  }, 100)
+
+  keypress(socket)
+
+  socket.on("keypress", function(char, key) {
+    if (!key || !key.name) {
+      return;
+    }
+
+    switch (key.name) {
+      case "left":  x--; break;
+      case "right": x++; break;
+      case "up":    y--; break;
+      case "down":  y++; break;
+    }
+
+    if (key.name === "escape") {
+      socket.end();
+      screen.unpipe(socket);
+    }
+  })
 })
 
 server.listen(9090)

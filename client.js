@@ -2,9 +2,5 @@
 
 var net = require('net')
 
-var mdmBus = require('mux-demux')()
-
-mdmBus.pipe(net.connect(9090)).pipe(mdmBus)
-
-var stream = mdmBus.createStream(process.env.USER)
-process.stdin.pipe(stream).pipe(process.stdout)
+process.stdin.setRawMode(true);
+process.stdin.pipe(net.connect(9090)).pipe(process.stdout)
